@@ -13,4 +13,3 @@ def click_cart(context):
 def verify_message(context):
     empty_message = context.driver.find_element(By.XPATH, "//h1[text()='Your cart is empty']").text
     assert "Your cart is empty" in empty_message, f"Expected text not in {empty_message}"
-    print("Passed")

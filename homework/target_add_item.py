@@ -17,4 +17,3 @@ def add_items(context):
 def verify_items(context):
     verify_text = context.driver.find_element(By.XPATH, "//span[text()='Added to cart']").text
     assert "Added to cart" in verify_text, f"Text not in {verify_text}"
-    print("Passed")
