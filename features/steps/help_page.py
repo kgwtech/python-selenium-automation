@@ -1,6 +1,6 @@
 from selenium.webdriver.common.by import By
+from selenium.webdriver.support import expected_conditions as EC
 from behave import *
-from time import sleep
 
 
 @given('Open target help page')
@@ -17,7 +17,6 @@ def click_help_button(context):
 @then('Enter {help_search} in text field')
 def enter_text(context, help_search):
     context.driver.find_element(By.CSS_SELECTOR, ".search-input").send_keys(help_search)
-    sleep(3)  # Can see search field has text entered
 
 
 @then('Click search icon button')

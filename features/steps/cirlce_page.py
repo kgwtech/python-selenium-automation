@@ -1,12 +1,10 @@
 from selenium.webdriver.common.by import By
 from behave import *
-from time import sleep
 
 
 @then('Navigate to Circle page')
 def navigate_circle(context):
     context.driver.find_element(By.CSS_SELECTOR, "#utilityNav-circle").click()
-    sleep(3)  # allow for circle page to load
 
 
 @then('Verify circle page is displayed')

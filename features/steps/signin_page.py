@@ -8,7 +8,6 @@ def access_signin(context):
     signin_btn_1 = context.driver.find_element(By.XPATH, "//span[text()='Sign in']")
     signin_btn_1.click()
     context.driver.find_element(By.XPATH, "//a[@data-test='accountNav-signIn']").click()
-    sleep(2)
 
 
 @then('Verify Sign In form opened')
