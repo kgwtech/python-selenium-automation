@@ -19,7 +19,7 @@ driver.maximize_window()
 # placed in code only once, for all find_element() and find_elements()
 # if fails, no exception error will show
 driver.implicitly_wait(5)
-driver.wait = WebDriverWait(driver, 10)
+# driver.wait = WebDriverWait(driver, 10)
 
 
 # def explicit wait
