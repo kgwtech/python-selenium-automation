@@ -1,9 +1,7 @@
 from selenium.webdriver.common.by import By
-from selenium.webdriver.support import expected_conditions as EC
-from behave import given, when, then
-from time import sleep
+from behave import *
 
-""" Calls methods from the Page Object for Webpage under test"""
+""" Calls methods from the Page Object for Webpage under test """
 
 ADD_TO_CART_BTN = (By.CSS_SELECTOR, "[data-test='addToCartButton']")
 SIDE_NAV_PRODUCT_NAME = (By.CSS_SELECTOR, "h4[class*='StyledHeading']")

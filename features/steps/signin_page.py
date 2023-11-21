@@ -1,6 +1,7 @@
 from selenium.webdriver.common.by import By
-from behave import given, when, then
-from time import sleep
+from behave import *
+
+""" Calls methods from the Page Object for Webpage under test """
 
 
 @when('Click Sign In button')

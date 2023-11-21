@@ -1,8 +1,6 @@
-from selenium.webdriver.common.by import By
-from behave import given, when, then
-from time import sleep
+from behave import *
 
-""" Calls methods from the Page Object for Webpage under test"""
+""" Calls methods from the Page Object for Webpage under test """
 
 
 @given('Open target main page')
