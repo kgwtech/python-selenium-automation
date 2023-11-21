@@ -16,6 +16,17 @@ def open_page(context):
     context.driver.get('https://www.target.com/p/A-87877683')
 
 
+@then('Add item to cart')
+def add_product_to_cart(context):
+    context.app.search_results_page.add_product_to_cart()
+
+
+@then('Verify product is in cart')
+def verify_product_in_cart(context):
+    context.app.search_results_page.verify_product_in_cart()
+
+
+
 @then('Verify search worked for {product}')
 def verify_search_result(context, product):
     context.app.search_results_page.verify_search_result(product)

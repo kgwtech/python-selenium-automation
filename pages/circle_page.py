@@ -5,13 +5,14 @@ from time import sleep
 
 class CirclePage(Page):
 
-    """ Main Page Element Locators """
+    """ Circle Page Element Locators """
 
     TABS = (By.CSS_SELECTOR, "[class*='PageSelectionText'] a")
     CIRCLE_HEADER_LOGO = (By.CSS_SELECTOR, "[data-test='circle-logo']")
 
     # Base methods to be utilized in Circle Page Steps
     """ Base Methods"""  # ////////////////////////////////////////////////////////////////////////////////////////////
+
     def open_circle_page(self):
         self.open_url("https://www.target.com/circle")
         sleep(5)  # wait for ads

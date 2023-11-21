@@ -23,7 +23,7 @@ def click_sign_in(context):
     context.app.main_page.click_signin()
 
 
-@when('From right side navigation menu, click Sign In')
+@then('From right side navigation menu, click Sign In')
 def click_sign_in_from_nav(context):
     context.app.main_page.signin_from_nav()
 

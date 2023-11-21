@@ -1,5 +1,4 @@
-# Created by prime. at 11/9/23
-Feature: Target circle page UI tests
+Feature: Circle page UI tests
 
   Scenario: User can access circle page from main page
     Given Open target main page

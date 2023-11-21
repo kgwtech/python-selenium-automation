@@ -1,5 +1,4 @@
-# Created by prime. at 11/9/23
-Feature: Help page UI Tests
+Feature: Help page UI tests
 
   Scenario: Verify 'Target Help' button UI element is present
     Given Open target help page

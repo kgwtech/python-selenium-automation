@@ -2,6 +2,8 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from behave import *
 
+""" Calls methods from the Page Object for Webpage under test """
+
 
 @given('Open target help page')
 def open_help_page(context):

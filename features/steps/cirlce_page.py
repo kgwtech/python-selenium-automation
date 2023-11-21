@@ -1,6 +1,8 @@
 from selenium.webdriver.common.by import By
 from behave import *
 
+""" Calls methods from the Page Object for Webpage under test """
+
 
 @given('Open target Circle Page')
 def open_circle(context):

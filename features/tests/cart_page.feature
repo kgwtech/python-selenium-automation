@@ -1,4 +1,4 @@
-Feature: Cart Page Tests
+Feature: Cart page UI tests
 
   Scenario: “Your cart is empty” message is shown for empty cart
     Given Open target main page

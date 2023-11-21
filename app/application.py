@@ -3,6 +3,7 @@ from pages.cart_page import CartPage
 from pages.circle_page import CirclePage
 from pages.main_page import MainPage
 from pages.search_results_page import SearchResultsPage
+from pages.signin_page import SignInPage
 
 
 class Application:
@@ -10,11 +11,14 @@ class Application:
     # Give access to driver
     # Gives usability of methods from pages
     def __init__(self, driver):
-        self.page = Page(driver)  # Base
+        # Base
+        self.page = Page(driver)
 
+        # Page Objects
         self.cart_page = CartPage(driver)
+        self.circle_page = CirclePage(driver)
         self.main_page = MainPage(driver)
         self.search_results_page = SearchResultsPage(driver)
-        self.circle_page = CirclePage(driver)
+        self.signin_page = SignInPage(driver)
 
 

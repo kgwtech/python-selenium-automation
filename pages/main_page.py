@@ -15,7 +15,9 @@ class MainPage(Page):
     CART_ICON = (By.CSS_SELECTOR, "[data-test='@web/CartLink']")
     CIRCLE_PAGE_LINK = (By.CSS_SELECTOR, "#utilityNav-circle")
 
-    # Methods for the Main Page
+    # Base methods to be utilized in Main Page Steps
+    """ Base Methods"""  # ////////////////////////////////////////////////////////////////////////////////////////////
+
     def open_main(self):
         self.open_url("https://www.target.com/")
 
@@ -32,6 +34,9 @@ class MainPage(Page):
 
     def signin_from_nav(self):
         self.click(*self.SIDE_MENU_SIGN_IN)
+
+    # Verification methods to be utilized in Main Page Steps
+    """ Verifications """  # //////////////////////////////////////////////////////////////////////////////////////////
 
     def verify_header(self):
         self.find_element(*self.HEADER)

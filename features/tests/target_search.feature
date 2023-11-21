@@ -27,6 +27,8 @@ Feature: Search tests
   Scenario: User can add a product to cart
     Given Open target main page
     When Search for headphones
+    Then Add item to cart
+    Then Verify product is in cart
 
 
   Scenario: Verify that user can see product names and images
