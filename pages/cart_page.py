@@ -10,4 +10,4 @@ class CartPage(Page):
     # Methods for the cart page
 
     def verify_empty_cart_msg(self):
-        self.find_element(*self.CART_EMPTY_MSG)
+        self.verify_text("Your cart is empty", *self.CART_EMPTY_MSG)

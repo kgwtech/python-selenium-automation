@@ -13,17 +13,14 @@ class SearchResultsPage(Page):
 
     # Methods for the Search Results Page
     def verify_search_result(self, expected_product):
-        search_results_header = self.find_element(*self.SEARCH_RESULTS_TXT).text
-        assert expected_product in search_results_header, \
-            f'Expected text {expected_product} not in {search_results_header}'
+        self.verify_partial_text(expected_product, *self.SEARCH_RESULTS_TXT)
 
     def verify_search_url(self, expected_url):
-        assert expected_url in self.driver.current_url, \
-            f"Expected {expected_url} not in {self.driver.current_url}"
+        self.verify_partial_url(expected_url)
 
     def verify_products_name_img(self):
         self.driver.execute_script("window.scrollBy(0,2000)", "")
-        sleep(2)  # wait for loading/ads
+        # sleep(2)  # wait for loading/ads
         self.driver.execute_script("window.scrollBy(0,2000)", "")
         all_products = self.driver.find_elements(*self.LISTINGS)
         # print(len(all_products)) # for verification for number of products

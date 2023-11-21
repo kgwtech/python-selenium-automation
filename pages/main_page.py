@@ -13,14 +13,17 @@ class MainPage(Page):
     HEADER = (By.CSS_SELECTOR, "[class*='UtilityHeaderWrapper']")
     HEADER_LINKS = (By.CSS_SELECTOR, "[data-test*='@web/GlobalHeader/UtilityHeader/']")
     CART_ICON = (By.CSS_SELECTOR, "[data-test='@web/CartLink']")
-
+    CIRCLE_PAGE_LINK = (By.CSS_SELECTOR, "#utilityNav-circle")
 
     # Methods for the Main Page
     def open_main(self):
         self.open_url("https://www.target.com/")
 
+    def nav_to_circle_page(self):
+        self.click(*self.CIRCLE_PAGE_LINK)
+
     def search(self, product):
-        self.input(product, *self.SEARCH_FIELD)
+        self.input_text(product, *self.SEARCH_FIELD)
         self.click(*self.SEARCH_BTN)
         sleep(6)  # wait for ads to disappear
 
@@ -39,6 +42,6 @@ class MainPage(Page):
         assert len(links) == number, f"Expected {number} links, but received {len(links)}"
 
     def click_cart_icon(self):
-        self.click(*self.CART_ICON)
+        self.wait_for_element_click(*self.CART_ICON)
 
 

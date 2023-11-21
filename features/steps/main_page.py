@@ -8,6 +8,11 @@ def open_target(context):
     context.app.main_page.open_main()
 
 
+@then('Navigate to Circle page')
+def navigate_circle(context):
+    context.app.main_page.nav_to_circle_page()
+
+
 @when('Search for {product}')
 def search_product(context, product):
     context.app.main_page.search(product)

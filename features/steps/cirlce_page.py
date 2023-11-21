@@ -2,9 +2,9 @@ from selenium.webdriver.common.by import By
 from behave import *
 
 
-@then('Navigate to Circle page')
-def navigate_circle(context):
-    context.driver.find_element(By.CSS_SELECTOR, "#utilityNav-circle").click()
+@given('Open target Circle Page')
+def open_circle(context):
+    context.app.circle_page.open_circle_page()
 
 
 @then('Verify circle page is displayed')
@@ -13,8 +13,11 @@ def navigate_circle(context):
         f"Circle logo not found"
 
 
-@then('Verify {number} benefit boxes are displayed')
-def navigate_circle(context, number):
-    number = int(number)
-    benefits = context.driver.find_elements(By.CSS_SELECTOR, "[class*='BenefitCard-sc']")
-    assert len(benefits) == number, f"Expected 5 benefit boxes, {len(benefits)} boxes were displayed."
+@then('Verify {number} tabs are displayed')
+def verify_num_tabs(context, number):
+    context.app.circle_page.verify_num_tabs_displayed(number)
+
+
+@then('Verify user can click through tabs')
+def verify_tabs_clickable(context):
+    context.app.circle_page.verify_tabs_clickable()
