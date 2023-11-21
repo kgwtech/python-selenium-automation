@@ -12,6 +12,8 @@ class MainPage(Page):
     SIDE_MENU_SIGN_IN = (By.CSS_SELECTOR, "[data-test='accountNav-signIn']")
     HEADER = (By.CSS_SELECTOR, "[class*='UtilityHeaderWrapper']")
     HEADER_LINKS = (By.CSS_SELECTOR, "[data-test*='@web/GlobalHeader/UtilityHeader/']")
+    CART_ICON = (By.CSS_SELECTOR, "[data-test='@web/CartLink']")
+
 
     # Methods for the Main Page
     def open_main(self):
@@ -35,5 +37,8 @@ class MainPage(Page):
         number = int(number)  # convert str to int
         links = self.find_element(*self.HEADER_LINKS)
         assert len(links) == number, f"Expected {number} links, but received {len(links)}"
+
+    def click_cart_icon(self):
+        self.click(*self.CART_ICON)
 
 

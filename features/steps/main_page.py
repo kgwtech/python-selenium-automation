@@ -31,3 +31,8 @@ def verify_header_preset(context):
 @then('Verify header has {number} links')
 def verify_header_has_links(context, number):
     context.app.main_page.verify_header_links()
+
+
+@when("Click on Cart icon")
+def click_cart_icon(context):
+    context.app.main_page.click_cart_icon()
