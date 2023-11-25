@@ -33,6 +33,7 @@ class MainPage(Page):
         self.click(*self.SIGN_IN_BTN)
 
     def signin_from_nav(self):
+        self.wait_for_visibility(*self.SIDE_MENU_SIGN_IN)
         self.click(*self.SIDE_MENU_SIGN_IN)
 
     # Verification methods to be utilized in Main Page Steps

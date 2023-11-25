@@ -27,6 +27,11 @@ Feature: Search tests
   Scenario: User can add a product to cart
     Given Open target main page
     When Search for headphones
+#    click add to cart button
+#    store product name
+#    open cart page
+#    varify cart has 1 item(s)
+#    very cart has correct product
     Then Add item to cart
     Then Verify product is in cart
 

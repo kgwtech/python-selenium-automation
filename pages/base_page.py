@@ -26,6 +26,24 @@ class Page:
     def input_text(self, text, *locator):
         self.driver.find_element(*locator).send_keys(text)
 
+    def get_current_window(self):
+        return self.driver.current_window_handle
+
+    def get_all_windows(self):
+        return self.driver.window_handles
+
+    def switch_to_new_window(self):
+        self.driver.wait.until(EC.new_window_is_opened)
+        # Newest window had index of 1
+        new_window = self.driver.window_handles[1]
+        self.driver.switch_to.window(new_window)
+
+    def switch_to_window(self, window_id):
+        self.driver.switch_to.window(window_id)
+
+    def close_window(self):
+        self.driver.close()
+
     # Base wait methods to be utilized in methods in other Page Objects
     """ Waits """  # ///////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -59,6 +77,7 @@ class Page:
             EC.url_changes(initial_url),
             message=f"Url {initial_url} did not change"
         )
+
     # Base verification methods to be utilized in methods in other Page Objects
     """ Verifications """  # //////////////////////////////////////////////////////////////////////////////////////////
 

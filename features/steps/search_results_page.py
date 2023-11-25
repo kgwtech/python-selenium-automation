@@ -3,9 +3,6 @@ from behave import *
 
 """ Calls methods from the Page Object for Webpage under test """
 
-ADD_TO_CART_BTN = (By.CSS_SELECTOR, "[data-test='addToCartButton']")
-SIDE_NAV_PRODUCT_NAME = (By.CSS_SELECTOR, "h4[class*='StyledHeading']")
-
 
 # @when('Click on Add to Cart button')
 # def store_product_name(context):
@@ -24,7 +21,6 @@ def add_product_to_cart(context):
 @then('Verify product is in cart')
 def verify_product_in_cart(context):
     context.app.search_results_page.verify_product_in_cart()
-
 
 
 @then('Verify search worked for {product}')
