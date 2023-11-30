@@ -18,3 +18,13 @@ Feature: SignIn page UI tests
     Then Verify Terms and Conditions page is opened
     And User can close new window and switch back to original
 
+
+
+  Scenario: User cannot login with invalid credentials
+    Given Open target main page
+    When Click Sign In
+    Then From right side navigation menu, click Sign In
+    Then Input 7734567854 and ifyouW23! on SignIn page
+    Then Click Sign In
+    Then Verify that We can't find your account. message is shown
+

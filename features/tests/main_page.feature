@@ -11,4 +11,9 @@ Feature: Main page UI tests
     Then From right side navigation menu, click Sign In
     Then Verify Sign In form opened
 
+  Scenario: User can see signin arrow
+    Given Open target main page
+    When Hover over signin button
+    Then Verify Signin arrow shown
+
 

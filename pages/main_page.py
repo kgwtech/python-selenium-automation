@@ -1,3 +1,4 @@
+from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.common.by import By
 from pages.base_page import Page
 from time import sleep
@@ -9,6 +10,7 @@ class MainPage(Page):
     SEARCH_FIELD = (By.ID, 'search')
     SEARCH_BTN = (By.CSS_SELECTOR, "[data-test='@web/Search/SearchButton']")
     SIGN_IN_BTN = (By.CSS_SELECTOR, "[data-test='@web/AccountLink']")
+    SIGN_IN_ARROW = (By.CSS_SELECTOR, "[data-test='@web/AccountLink'] > div > svg.expander")
     SIDE_MENU_SIGN_IN = (By.CSS_SELECTOR, "[data-test='accountNav-signIn']")
     HEADER = (By.CSS_SELECTOR, "[class*='UtilityHeaderWrapper']")
     HEADER_LINKS = (By.CSS_SELECTOR, "[data-test*='@web/GlobalHeader/UtilityHeader/']")
@@ -32,9 +34,19 @@ class MainPage(Page):
     def click_signin(self):
         self.click(*self.SIGN_IN_BTN)
 
+    def click_cart_icon(self):
+        self.wait_for_element_click(*self.CART_ICON)
+
     def signin_from_nav(self):
         self.wait_for_visibility(*self.SIDE_MENU_SIGN_IN)
         self.click(*self.SIDE_MENU_SIGN_IN)
+
+    def hover_over_signin(self):
+        signin_btn = self.find_element(*self.SIGN_IN_BTN)
+        actions = ActionChains(self.driver)
+        actions.move_to_element(signin_btn)
+        actions.perform()
+
 
     # Verification methods to be utilized in Main Page Steps
     """ Verifications """  # //////////////////////////////////////////////////////////////////////////////////////////
@@ -47,7 +59,8 @@ class MainPage(Page):
         links = self.find_element(*self.HEADER_LINKS)
         assert len(links) == number, f"Expected {number} links, but received {len(links)}"
 
-    def click_cart_icon(self):
-        self.wait_for_element_click(*self.CART_ICON)
+    def verify_signin_arrow_shown(self):
+        self.wait_for_visibility(*self.SIGN_IN_ARROW)
+
 
 

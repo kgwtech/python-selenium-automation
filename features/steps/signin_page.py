@@ -4,7 +4,7 @@ from behave import *
 """ Calls methods from the Page Object for Webpage under test """
 
 
-@given('Open sign in page')
+@given('Open target sign in page')
 def open_signin_page(context):
     context.app.signin_page.open_signin_page()
 
@@ -33,6 +33,11 @@ def login(context):
 @then('Verify user is successfully logged in')
 def verify_successful_login(context):
     context.app.signin_page.verify_login()
+
+
+@then("Verify that {error_msg} message is shown")
+def verify_login_error_msg(context, error_msg):
+    context.app.signin_page.verify_login_error_msg(error_msg)
 
 
 @then('Verify Sign In form opened')

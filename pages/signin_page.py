@@ -17,6 +17,7 @@ class SignInPage(Page):
     SIGN_IN_TXT = (By.CSS_SELECTOR, "h1[class*=AuthHeading]")
     SIGNED_IN_MSG = (By.CSS_SELECTOR, "[class*='LinkText']")
     TERMS_CONDITIONS = (By.CSS_SELECTOR, "[aria-label*='terms']")
+    SIGN_IN_ERROR_MSG = (By.CSS_SELECTOR, "[data-test='authAlertDisplay']")
 
     # Base methods to be utilized in SignIn Page Steps
     """ Base Methods"""  # ////////////////////////////////////////////////////////////////////////////////////////////
@@ -46,6 +47,9 @@ class SignInPage(Page):
     def verify_page_opened(self):
         self.verify_text("Sign into your Target account", *self.SIGN_IN_TXT)
 
-
     def verify_login(self):
         self.verify_text("Hi, ", *self.SIGNED_IN_MSG)
+
+    def verify_login_error_msg(self, error_msg):
+        self.wait.until(EC.visibility_of_all_elements_located)
+        self.verify_text(error_msg, *self.SIGN_IN_ERROR_MSG)
